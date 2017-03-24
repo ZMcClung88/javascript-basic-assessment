@@ -125,8 +125,8 @@ function getValueOfProperty(obj,name) {
 
 function makeChatMessage(message,author) {
 	var obj ={};
-	if(!message)obj.message = author+" is awesome";
-	if(!author)obj.author = "Brack";
+	if(!message)obj.message = author+" is learning to code";
+	if(!author)obj.author = "Zac";
 
 	obj.message = message;
 	obj.author = author;
