@@ -160,11 +160,11 @@ function coderTest(person) {
     Otherwise - return "I love outside"
 */
 
-function outside(temp,humi,cloud) {
-	if(temp>80&&humi>40)return "I\'m all sweat";
+function outside(temp,humid,cloud) {
+	if(temp>80&&humid>40)return "I\'m all sweat";
 	else if(temp<40&&cloud>60)return "I have icecicles";
-	else if(temp>80&&humi<40&&cloud<20)return "I\'m literally in the desert";
-	else if(temp>80||humi>50||cloud>50)return "Hmm, probably not";
+	else if(temp>80&&humid<40&&cloud<20)return "I\'m literally in the desert";
+	else if(temp>80||humid>50||cloud>50)return "Hmm, probably not";
 	else return "I love outside";
 }
 
