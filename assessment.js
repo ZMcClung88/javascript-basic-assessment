@@ -107,47 +107,46 @@ function removeItem(array,str) {
 // #11 Write a function  called doubleTheFun that takes 1 parameter. It should double numbers, and
 // repeats strings. example 4->8, 2.5->5, 'Awesome'->'AwesomeAwesome'
 function doubleTheFun(num) {
-	return Number(num) ? Number(num) + Number(num) : '' + num + num;
+	var returnVal;
+	if(Number(num)) {
+		returnVal = Number(num) + Number(num);
+	} else {
+		returnVal = num + num;
+	}
+	return returnVal;
 }
 
 
 // #12 Write function getValueOfProperty that takes in an object, and the name of a property on the object
 // return the value from the object that corresponds to the property
-function getValueOfProperty(obj,name) {
-	if (obj.hasOwnProperty(name)) {
-		return obj[name];
-	}
-	else return 1;
+function getValueOfProperty(obj, prop) {
+	return obj[prop];
 }
 // #13 Write a function called makeChatMessage that takes in a message and author as parameters
 // and returns an object with a message, author, and timestamp, that is
 // the current time as a Date object
 
-function makeChatMessage(message,author) {
-	var obj ={};
-	if(!message)obj.message = author+" is learning to code";
-	if(!author)obj.author = "Zac";
-
-	obj.message = message;
-	obj.author = author;
-	var x = new Date();
-	obj.timestamp = x;
-	return obj;
-
+function makeChatMessage(message, author) {
+	var chatMessage = {
+		"message": message,
+		"author": author,
+		"timestamp": new Date()
+	}
+	return chatMessage;
+	
 }
 
 // #14 Create a function called coderTest that takes in an object that is a person. It looks to see if the person’s name is Jeremy and then changes the person object to have a property called lovesCode with a value of 10.  If their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
 function coderTest(person) {
-		for (var variable in person) {
-			if(person.name === 'Jeremy'){
-				person.lovesCode = 10;
-			}
-			else if(person.name === 'Brack'){
-				person.lovesCode = 0;
-			}
-			else{person.lovesCode = 5;}
-
+	for(var key in person) {
+		if(person.name === 'Jeremy') {
+			person.lovesCode = 10;
+		} else if(person.name === 'Brack') {
+			person.lovesCode = 0;
+		} else {
+			person.lovesCode = 5;
 		}
+	}
 }
 
 
@@ -160,17 +159,30 @@ function coderTest(person) {
     Otherwise - return "I love outside"
 */
 
-function outside(temp,humid,cloud) {
-	if(temp>80&&humid>40)return "I\'m all sweat";
-	else if(temp<40&&cloud>60)return "I have icecicles";
-	else if(temp>80&&humid<40&&cloud<20)return "I\'m literally in the desert";
-	else if(temp>80||humid>50||cloud>50)return "Hmm, probably not";
-	else return "I love outside";
+function outside(temp,humid, cloud) {
+	if(temp > 80 && humid > 40) {
+		return 'I\'m all sweat';
+	} else if( temp < 40 && cloud > 60) {
+		return 'I have icecicles';
+	} else if(temp > 80 && humid < 40 && cloud < 20) {
+		return 'I\'m literally in the desert';
+	} else if(temp > 80 || humid > 50 || cloud > 50) {
+		return 'Hmm, probably not';
+	} else {
+		return 'I love outside';
+	}
 }
+
+
 
 // #16 Create a function called callerBack that takes in a function (holla) and a string parameter(back) and invokes it(holla) with the argument string(back) + ' back'."
 // example - If I call you with 'Give it' you should invoke holla with 'Give it back'
+
+
 function callerBack(holla,back) {
-	var arg = back +" back";
+	var arg = back + ' back';
 	holla(arg);
 }
+
+
+
